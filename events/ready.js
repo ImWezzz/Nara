@@ -7,3 +7,5 @@ const event = {
         console.log(`Logged in as: ${client.user.username}`)
     }
 }
+
+module.exports = { event }

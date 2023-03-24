@@ -1,4 +1,4 @@
-const { HybridBuilder, ParamsBuilder } = require("erine");
+const { HybridBuilder } = require("erine");
 const { EmbedBuilder } = require("discord.js");
 
 const body = {

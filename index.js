@@ -3,12 +3,15 @@ const { Database } = require('midb');
 const { ActivityType } = require('discord.js');
 const db = new Database();
 const bot = new ErineClient({
+  owners: ['759233882926350346'],
   intents: [
     'Guilds',
     'GuildMessages',
     'MessageContent'
   ],
-  prefix: '!'
+  prefix: async function(ctx) {
+    let prefix = await db.get(`prefix_${ctx.guild.id}`);
+    return prefix || '!'
   },
   presence: {
     activities: [{
@@ -22,4 +25,4 @@ const bot = new ErineClient({
 bot.load_commands("./commands");
 bot.load_events("./events");
 
-bot.login("TOKEN");
+bot.login("require('./config').token);

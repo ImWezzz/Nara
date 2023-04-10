@@ -25,4 +25,4 @@ const bot = new ErineClient({
 bot.load_commands("./commands");
 bot.load_events("./events");
 
-bot.login("require('./config').token);
+bot.login("pene");

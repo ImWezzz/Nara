@@ -1,13 +1,12 @@
-const { HybridBuilder, ParamsBuilder } = require("erine");
+const { HybridBuilder, Context } = require("erine");
 
 const body = {
     data: new HybridBuilder()
-    .setName('say')
-    .setDescription('What do you want me to repeat?'),
-    params: new ParamsBuilder()
-    .addString({ name: "text", description: "Insert your text", required: true, long: true }),
+    .setName("ping")
+    .setAliases("latency")
+    .setDescription("Muestra mi ping"),
     async code(ctx) {
-       await ctx.send(ctx.get("text"));
+        ctx.send(`Mi ping es de: ${ctx.bot.ws.ping}ms`)
     }
 }
 
